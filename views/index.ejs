@@ -1,0 +1,24 @@
+<h3>Add Customer</h3>
+
+<form method="post" action="/customer/add">
+<input type="text" name="name" placeholder="Your name" />
+<input type="text" name="email" placeholder="Your email" />
+<input type="text" name="phone" placeholder="Your phone" />
+<input type="submit" value="Submit" />
+</form>
+
+
+<h3>Customers</h3>
+<ul>
+<% customers.forEach(function(customer){ %>
+    <li>
+        <h4><%= customer.value.name %></h4>
+        <p>email: <%= customer.value.email %></p>
+        <p>phone: <%= customer.value.phone %></p>
+        <a href="/customer/edit/<%= customer.id %>">Edit</a>
+        <form onsubmit="return confirm('Are you sure you want to delete this?')" method="post" action="/customer/delete/<%= customer.id %>">
+            <input type="hidden" value="<%= customer.value.rev %>" name="rev" />
+            <input type="submit" value="x" />
+        </form>
+<% }); %>
+</ul>

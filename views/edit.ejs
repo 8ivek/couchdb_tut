@@ -1,0 +1,10 @@
+<p><a href="/">Home</a></p>
+<h3>Edit Customer</h3>
+
+<form method="post" action="/customer/save/<%= customer._id %>">
+<input type="text" name="name" value="<%= customer.name %>" />
+<input type="text" name="email" value="<%= customer.email %>" />
+<input type="text" name="phone" value="<%= customer.phone %>" />
+<input type="hidden" value="<%= customer._rev %>" name="rev" />
+<input type="submit" value="Save" />
+</form>
